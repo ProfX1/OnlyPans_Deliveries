@@ -22,7 +22,7 @@ const variants ={
 const Button = ({
     children,
     className,
-    size= 'large',
+    size= 'small',
     variant='primary',
     ...rest
 }) => {
