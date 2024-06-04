@@ -1,5 +1,7 @@
 const express = require('express');
+
 const router = express.Router();
+
 const Product = require('../models/productModel');
 
 router.get('/products', async (req, res) => {
@@ -18,10 +20,12 @@ router.get('/products-by-categories', async (req, res) => {
             { $group: {
                 _id: "$category",
                 products: { $push: "$$ROOT" }
-            }}
-            { $project: { name: $_id, products: 1, _id: 0}}
+            }},
+            { $project: { name: '$_id', products: 1, _id: 0}}
         ])
         res.status(200).send({ data: products})
+    } catch (err) {
+        res.status(400).send({ error: err })
     }
 })
 
