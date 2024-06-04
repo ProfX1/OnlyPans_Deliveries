@@ -3,3 +3,5 @@ Commands to have for onlypans deliveries:
 npm install -g react-scripts
 npm install react
 npm start
+npm install --save clsx
+npm install express body-parser cors mongoose nodemon
