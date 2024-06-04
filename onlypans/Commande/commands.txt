@@ -5,3 +5,8 @@ npm install react
 npm start
 npm install --save clsx
 npm install express body-parser cors mongoose nodemon
+npm init -y
+npm install @faker-js/faker --save-dev
+npm i -g npm
+npm i --save lodash
+

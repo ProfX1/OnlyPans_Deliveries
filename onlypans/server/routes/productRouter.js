@@ -11,4 +11,18 @@ router.get('/products', async (req, res) => {
     }
 })
 
+router.get('/products-by-categories', async (req, res) => {
+    try {
+        const products = await Product.aggregate([
+            { $match: {}},
+            { $group: {
+                _id: "$category",
+                products: { $push: "$$ROOT" }
+            }}
+            { $project: { name: $_id, products: 1, _id: 0}}
+        ])
+        res.status(200).send({ data: products})
+    }
+})
+
 module.exports = router;
